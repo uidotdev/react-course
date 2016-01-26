@@ -34,33 +34,25 @@ Video 0:
           Query Parameters
         Webpack
           CSS Loader
-          HTMLWebpackPluginCongif
+          HTMLWebpackPluginConfig
         Babel
         Axios
     - Philosophy on Education
       - Passive learning is lame
       - Intro to Format
+        - https://twitter.com/dan_abramov/status/691448667690106880
+        - https://twitter.com/amasad/status/691451497599602688
         - Text Intro
         - Videos build something (Show Project)
           - Each video has a branch
+          - Quiz
         - Github Curriculum (Show Project)
 
 Video 1:
-  Why React?
-    Imperative vs Declarative
-    Composition
-    Unidirectional Dataflow
-    Freedom from DSLs
-    Explicit Mutations
-  How Pieces Fit Together
-    React
-    React Router
-    Webpack
-    Babel
-    Axios
+  https://slides.com/tylermcginnis/why-react
+  http://stackoverflow.com/questions/1784664/what-is-the-difference-between-declarative-and-imperative-programming
   Intro to Github Battle App
     - Show highlighted components
-    - Diagram app somehow? (showing container and presentational components)
 
 Video 2 - Hello World
   Start from scratch
@@ -87,14 +79,28 @@ Video 2 - Hello World
       index.js hello world
     Add .gitignore
 
-Video 3 - Play around with state, props, and this.props.children
+Video 3 - Establish building blocks/Paradigms of React
+  https://addyosmani.com/first/
+  * All your intuitions about creating functions should be the same for creating components
+    - When to create functions / components
+      - https://en.wikipedia.org/wiki/Single_responsibility_principle
+  * Talk pure functions
+      A pure function doesn’t depend on and doesn’t modify the states of variables out of its scope.
+      Concretely, that means a pure function always returns the same result given same parameters. Its execution doesn’t depend on the state of the system.
+      Pure functions have two very nice properties. They are easy to think about, and they are easy to re-use.
+  * the most important parts of a function are the arguments and the return statement
+      same for react in props and render
+      ƒ(d)=V
+      It’s a function that receives data as its input and returns a view.
+    https://jsfiddle.net/tylermcginnis/k5p4v5zv/1/
   Show examaple of nested components
   Show example of passing props to child component
-  Show example with this.props.children (see video3 branch)
 
 Video 4 - First Routes
+  Show examples of this.props.children (https://jsfiddle.net/tylermcginnis/0zkh2wLk/)
   make routes.js inside of app/config
     - Show finished Declarative routes and walk through what's happening
+        - Point out props being passed to routes and use of this.props.children
     - npm install react-router
     - Use "future" Main and Home components to create
       <Router>
@@ -110,6 +116,7 @@ Video 4 - First Routes
 
 Video 5 - Prompt Screens
   Create /containers folder
+  https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.lkgqdphew
   Create PromptContainer component in /containers /
     Talk about the purpose of this component
       keep track of username state
@@ -203,8 +210,11 @@ Video 12
   Make app/main.css file with css
   require('../main.css') in Main.js
 
-Video X:
+Video 13:
+  Add Tooltip to Score? http://wwayne.com/react-tooltip/
   Challenge: Add errors handling when github handle isnt a profile
+
+Video 14 (maybe, maybe not)
   Shows commons things not in series
     - map
     - filter
