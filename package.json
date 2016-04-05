@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "prod": "webpack -p"
+    "produdction": "webpack -p"
   },
   "author": "Tyler McGinnis <tylermcginnis33@gmail.com> (http://tylermcginnis.com)",
   "license": "ISC",
