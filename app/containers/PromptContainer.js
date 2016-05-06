@@ -18,7 +18,6 @@ var PromptContainer = React.createClass({
     });
 
     if (this.props.routeParams.playerOne) {
-      var pathname =
       this.context.router.push({
         pathname: '/battle',
         query: {
