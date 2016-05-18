@@ -21,7 +21,7 @@ function StartOver () {
 function Tie (props) {
   return (
     <MainContainer>
-      <h1>It's a Tie!</h1>
+      <h1>{`It's a Tie!`}</h1>
       <StartOver />
     </MainContainer>
   )
