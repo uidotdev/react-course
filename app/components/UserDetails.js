@@ -1,5 +1,5 @@
 var React = require('react');
-var PropTypes = React.PropTypes
+var PropTypes = React.PropTypes;
 
 function UserDetails (user) {
   return (
