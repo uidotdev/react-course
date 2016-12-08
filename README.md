@@ -8,6 +8,6 @@ React.js Fundamentals Video Project
 ## Notes
 Every video is coincided with a branch. If you want to compare your code with mine or you just want to play around with the code, check out the different branches on this repository.
 
-<img src="https://cloud.githubusercontent.com/assets/2933430/21000153/6e9fa846-bcd6-11e6-9e09-2e6bb868f71c.png" width="250" align="left">
+<img src="https://cloud.githubusercontent.com/assets/2933430/21000153/6e9fa846-bcd6-11e6-9e09-2e6bb868f71c.png" width="250" >
 
 [Tyler McGinnis](https://twitter.com/tylermcginnis33)
