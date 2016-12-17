@@ -53,7 +53,7 @@ var helpers = {
     var playerTwoData = getPlayersData(players[1]);
     return axios.all([playerOneData, playerTwoData])
       .then(calculateScores)
-      .catch(function (err) {console.warn('Error in getPlayersInfo: ', err)})
+      .catch(function (err) {console.warn('Error in battle function: ', err)})
   }
 };
 
