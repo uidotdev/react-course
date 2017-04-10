@@ -11,31 +11,31 @@ var styles = {
 class Loading extends React.Component {
   constructor(props) {
     super(props);
-    this.originalText = props.text;
+
     this.state = {
-      text: this.originalText,
+      text: props.text
     };
   }
   componentDidMount() {
-    var stopper = this.originalText + '...'
-    this.interval = setInterval(function () {
+    var stopper = this.props.text + '...';
+    this.interval = window.setInterval(function () {
       if (this.state.text === stopper) {
         this.setState(function () {
           return {
-            text: this.originalText
+            text: this.props.text
           }
-        });
+        })
       } else {
         this.setState(function (prevState) {
           return {
             text: prevState.text + '.'
           }
-        })
+        });
       }
     }.bind(this), this.props.speed)
   }
   componentWillUnmount() {
-    window.clearInterval(this.interval)
+    window.clearInterval(this.interval);
   }
   render() {
     return (
@@ -47,8 +47,8 @@ class Loading extends React.Component {
 }
 
 Loading.propTypes = {
-  text: PropTypes.string,
-  speed: PropTypes.number
+  text: PropTypes.string.isRequired,
+  speed: PropTypes.number.isRequired,
 };
 
 Loading.defaultProps = {
