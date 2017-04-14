@@ -15,7 +15,7 @@ function PlayerPreview (props) {
       </div>
       <button
         className='reset'
-        onClick={props.onReset.bind(null, 'playerTwo')}>
+        onClick={props.onReset.bind(null, props.id)}>
           Reset
       </button>
     </div>
@@ -139,6 +139,7 @@ class Battle extends React.Component {
               avatar={playerOneImage}
               username={playerOneName}
               onReset={this.handleReset}
+              id='playerOne'
             />}
 
           {!playerTwoName &&
@@ -153,6 +154,7 @@ class Battle extends React.Component {
               avatar={playerTwoImage}
               username={playerTwoName}
               onReset={this.handleReset}
+              id='playerTwo'
             />}
         </div>
 
