@@ -7,6 +7,8 @@ React Fundamentals Video Project
 
 ## You can see the final project [here](https://rt-react-fundamentals.firebaseapp.com/)
 
+This is a "Github Battle App". Enter in two Github usernames, and it'll declare a winner. 
+
 ## Notes
 Every video is coincided with a branch. If you want to compare your code with mine or you just want to play around with the code, check out the different branches on this repository.
 
