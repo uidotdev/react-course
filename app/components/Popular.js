@@ -2,7 +2,7 @@ var React = require('react');
 
 class Popular extends React.Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       selectedLanguage: 'All',
     };
