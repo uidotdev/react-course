@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "axios": "^0.16.0",
+    "query-string": "^4.3.4",
     "prop-types": "^15.5.4",
     "react": "^16.0.0-alpha.5",
     "react-dom": "^16.0.0-alpha.5",
