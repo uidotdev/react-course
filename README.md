@@ -1,9 +1,9 @@
-<img src="https://cloud.githubusercontent.com/assets/2933430/24846370/3443ccfc-1d77-11e7-8d1d-dc64d86c3852.png" width="300" align="right">
+<img src="https://tylermcginnis.com/tylermcginnis_glasses-300.png" width="300" align="right">
 
 React Fundamentals Video Project
 ========
 
-#### This is the repository for the project we'll build together during React Trainings "React Fundamentals" course, for more information on the course see [reacttraining.com/online](https://reacttraining.com/online)
+#### This is the repository for the project we'll build together during TylerMcGinnis.com's "React Fundamentals" course, for more information on the course see [tylermcginnis.com/courses](https://tylermcginnis.com/courses)
 
 ## You can see the final project [here](https://rt-react-fundamentals.firebaseapp.com/)
 
