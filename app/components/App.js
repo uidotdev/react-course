@@ -18,7 +18,7 @@ class App extends Component {
             <Route exact path='/battle' component={Battle} />
             <Route path='/battle/results' component={Results} />
             <Route path='/popular' component={Popular} />
-            <Route render={function () {
+            <Route render={() => {
               return <p>Not Found</p>
             }} />
           </Switch>

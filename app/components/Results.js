@@ -43,24 +43,22 @@ Player.propTypes = {
 }
 
 class Results extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      winner: null,
-      loser: null,
-      error: null,
-      loading: true,
-    }
+  state = {
+    winner: null,
+    loser: null,
+    error: null,
+    loading: true,
   }
-  componentDidMount() {
+
+  componentDidMount = () => {
     const players = queryString.parse(this.props.location.search);
 
     battle([
       players.playerOneName,
       players.playerTwoName
-    ]).then(function (players) {
+    ]).then((players) => {
       if (players === null) {
-        return this.setState(function () {
+        return this.setState(() => {
           return {
             error: 'Looks like there was an error. Check that both users exist on Github.',
             loading: false,
@@ -68,7 +66,7 @@ class Results extends Component {
         });
       }
 
-      this.setState(function () {
+      this.setState(() => {
         return {
           error: null,
           winner: players[0],
@@ -76,7 +74,7 @@ class Results extends Component {
           loading: false,
         }
       });
-    }.bind(this));
+    });
   }
   render() {
     const { error, winner, loser, loading } = this.state

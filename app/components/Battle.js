@@ -4,25 +4,30 @@ import { Link } from 'react-router-dom';
 import PlayerPreview from './PlayerPreview';
 
 class PlayerInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: ''
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+  static propTypes = {
+    id: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    onSubmit: PropTypes.func.isRequired,
   }
-  handleChange(event) {
+
+  static defaultProps = {
+    label: 'Username',
+  }
+
+  state = {
+    username: ''
+  }
+
+  handleChange = (event) => {
     const value = event.target.value;
 
-    this.setState(function () {
+    this.setState(() => {
       return {
         username: value
       }
     });
   }
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     this.props.onSubmit(
@@ -53,38 +58,24 @@ class PlayerInput extends Component {
   }
 }
 
-PlayerInput.propTypes = {
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-}
-
-PlayerInput.defaultProps = {
-  label: 'Username',
-}
-
 class Battle extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      playerOneName: '',
-      playerTwoName: '',
-      playerOneImage: null,
-      playerTwoImage: null,
-    };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
+  state = {
+    playerOneName: '',
+    playerTwoName: '',
+    playerOneImage: null,
+    playerTwoImage: null,
   }
-  handleSubmit(id, username) {
-    this.setState(function () {
+
+  handleSubmit = (id, username) => {
+    this.setState(() => {
       let newState = {};
       newState[id + 'Name'] = username;
       newState[id + 'Image'] = 'https://github.com/' + username + '.png?size=200'
       return newState;
     });
   }
-  handleReset(id) {
-    this.setState(function () {
+  handleReset = (id) => {
+    this.setState(() => {
       let newState = {};
       newState[id + 'Name'] = '';
       newState[id + 'Image'] = null;
