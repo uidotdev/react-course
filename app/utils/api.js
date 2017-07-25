@@ -1,4 +1,4 @@
-var axios = require('axios');
+import axios from 'axios';
 
 var id = "YOUR_CLIENT_ID";
 var sec = "YOUR_SECRET_ID";
@@ -54,18 +54,17 @@ function sortPlayers (players) {
   });
 }
 
-module.exports = {
-  battle: function (players) {
-    return axios.all(players.map(getUserData))
-      .then(sortPlayers)
-      .catch(handleError);
-  },
-  fetchPopularRepos: function (language) {
-    var encodedURI = window.encodeURI('https://api.github.com/search/repositories?q=stars:>1+language:'+ language + '&sort=stars&order=desc&type=Repositories');
+export function battle (players) {
+  return axios.all(players.map(getUserData))
+    .then(sortPlayers)
+    .catch(handleError);
+}
 
-    return axios.get(encodedURI)
-      .then(function (response) {
-        return response.data.items;
-      });
-  }
-};
+export function fetchPopularRepos (language) {
+  var encodedURI = window.encodeURI('https://api.github.com/search/repositories?q=stars:>1+language:'+ language + '&sort=stars&order=desc&type=Repositories');
+
+  return axios.get(encodedURI)
+    .then(function (response) {
+      return response.data.items;
+    });
+}

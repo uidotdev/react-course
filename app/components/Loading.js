@@ -1,5 +1,5 @@
-var React = require('react');
-var PropTypes = require('prop-types');
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 var styles = {
   content: {
@@ -8,7 +8,7 @@ var styles = {
   }
 };
 
-class Loading extends React.Component {
+class Loading extends Component {
   constructor(props) {
     super(props);
 
@@ -56,4 +56,4 @@ Loading.defaultProps = {
   speed: 300
 };
 
-module.exports = Loading;
+export default Loading;
