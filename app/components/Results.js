@@ -7,7 +7,7 @@ import PlayerPreview from './PlayerPreview';
 import Loading from './Loading';
 
 function Profile (props) {
-  var info = props.info;
+  const info = props.info;
 
   return (
     <PlayerPreview username={info.login} avatar={info.avatar_url}>
@@ -55,7 +55,7 @@ class Results extends Component {
     }
   }
   componentDidMount() {
-    var players = queryString.parse(this.props.location.search);
+    const players = queryString.parse(this.props.location.search);
 
     battle([
       players.playerOneName,
@@ -81,10 +81,10 @@ class Results extends Component {
     }.bind(this));
   }
   render() {
-    var error = this.state.error;
-    var winner = this.state.winner;
-    var loser = this.state.loser;
-    var loading = this.state.loading;
+    const error = this.state.error;
+    const winner = this.state.winner;
+    const loser = this.state.loser;
+    const loading = this.state.loading;
 
     if (loading === true) {
       return <Loading />

@@ -14,7 +14,7 @@ class PlayerInput extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(event) {
-    var value = event.target.value;
+    const value = event.target.value;
 
     this.setState(function () {
       return {
@@ -77,7 +77,7 @@ class Battle extends React.Component {
   }
   handleSubmit(id, username) {
     this.setState(function () {
-      var newState = {};
+      let newState = {};
       newState[id + 'Name'] = username;
       newState[id + 'Image'] = 'https://github.com/' + username + '.png?size=200'
       return newState;
@@ -85,18 +85,18 @@ class Battle extends React.Component {
   }
   handleReset(id) {
     this.setState(function () {
-      var newState = {};
+      let newState = {};
       newState[id + 'Name'] = '';
       newState[id + 'Image'] = null;
       return newState;
     })
   }
   render() {
-    var match = this.props.match;
-    var playerOneName = this.state.playerOneName;
-    var playerOneImage = this.state.playerOneImage;
-    var playerTwoName = this.state.playerTwoName;
-    var playerTwoImage = this.state.playerTwoImage;
+    const match = this.props.match;
+    const playerOneName = this.state.playerOneName;
+    const playerOneImage = this.state.playerOneImage;
+    const playerTwoName = this.state.playerTwoName;
+    const playerTwoImage = this.state.playerTwoImage;
 
     return (
       <div>
