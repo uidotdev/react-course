@@ -65,7 +65,7 @@ class Popular extends Component {
   componentDidMount = () => {
     this.updateLanguage(this.state.selectedLanguage)
   }
-  updateLanguage = (lang) => {
+  updateLanguage = async (lang) => {
     this.setState(() => {
       return {
         selectedLanguage: lang,
@@ -73,14 +73,12 @@ class Popular extends Component {
       }
     });
 
-    fetchPopularRepos(lang)
-      .then((repos) => {
-        this.setState(() => {
-          return {
-            repos: repos
-          }
-        });
-      });
+    try {
+      const repos = await fetchPopularRepos(lang)
+      this.setState(() => ({ repos }))
+    } catch (error) {
+      console.log(error)
+    }
   }
   render() {
     return (

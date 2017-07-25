@@ -4,11 +4,14 @@ const id = "YOUR_CLIENT_ID";
 const sec = "YOUR_SECRET_ID";
 const params = `?client_id=${id}&client_secret=${sec}`;
 
-function getProfile (username) {
-  return axios.get(`https://api.github.com/users/${username}${params}`)
-    .then((user) => {
-      return user.data;
-    });
+async function getProfile (username) {
+  try {
+    const user = await axios.get(`https://api.github.com/users/${username}${params}`);
+    return user.data;
+  } catch (error) {
+    handleError(error);
+  }
+
 }
 
 function getRepos (username) {
@@ -33,19 +36,22 @@ function handleError (error) {
   return null;
 }
 
-function getUserData (player) {
-  return axios.all([
-    getProfile(player),
-    getRepos(player)
-  ]).then((data) => {
+async function getUserData (player) {
+  try {
+    const data = await axios.all([
+      getProfile(player),
+      getRepos(player)
+    ])
     const profile = data[0];
     const repos = data[1];
 
     return {
-      profile: profile,
+      profile,
       score: calculateScore(profile, repos)
     }
-  });
+  } catch (error) {
+    handleError(error);
+  }
 }
 
 function sortPlayers (players) {
@@ -54,17 +60,22 @@ function sortPlayers (players) {
   });
 }
 
-export function battle (players) {
-  return axios.all(players.map(getUserData))
-    .then(sortPlayers)
-    .catch(handleError);
+export async function battle (players) {
+  const promises = players.map(getUserData)
+  try {
+    const players = await axios.all(promises)
+    return sortPlayers(players)
+  } catch (error) {
+    handleError(error);
+  }
 }
 
-export function fetchPopularRepos (language) {
+export async function fetchPopularRepos (language) {
   const encodedURI = window.encodeURI(`https://api.github.com/search/repositories?q=stars:>1+language:${language}&sort=stars&order=desc&type=Repositories`);
-
-  return axios.get(encodedURI)
-    .then((response) => {
-      return response.data.items;
-    });
+  try {
+    const response = await axios.get(encodedURI)
+    return response.data.items;
+  } catch (error) {
+    handleError(error);
+  }
 }
