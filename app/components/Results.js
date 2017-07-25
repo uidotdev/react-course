@@ -6,9 +6,7 @@ import { Link } from 'react-router-dom';
 import PlayerPreview from './PlayerPreview';
 import Loading from './Loading';
 
-function Profile (props) {
-  const info = props.info;
-
+function Profile ({ info }) {
   return (
     <PlayerPreview username={info.login} avatar={info.avatar_url}>
       <ul className='space-list-items'>
@@ -28,12 +26,12 @@ Profile.propTypes = {
   info: PropTypes.object.isRequired,
 }
 
-function Player (props) {
+function Player ({ label, score, profile }) {
   return (
     <div>
-      <h1 className='header'>{props.label}</h1>
-      <h3 style={{textAlign: 'center'}}>Score: {props.score}</h3>
-      <Profile info={props.profile} />
+      <h1 className='header'>{label}</h1>
+      <h3 style={{textAlign: 'center'}}>Score: {score}</h3>
+      <Profile info={profile} />
     </div>
   )
 }
@@ -81,10 +79,7 @@ class Results extends Component {
     }.bind(this));
   }
   render() {
-    const error = this.state.error;
-    const winner = this.state.winner;
-    const loser = this.state.loser;
-    const loading = this.state.loading;
+    const { error, winner, loser, loading } = this.state
 
     if (loading === true) {
       return <Loading />
