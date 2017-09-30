@@ -1,4 +1,4 @@
-# React Fundamentals (tutorial on reacttraining.com)
+# React Fundamentals (tutorial on tylermcginnis.com)
 
 ## Intro to the React Ecosystem
 
