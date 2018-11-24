@@ -35,7 +35,7 @@ This course will cover the following tools from the React Ecosystem:
     * It helps us perform code transformations to the code with write to make it ready for the development server or for production
     * We specify a entry files which we work on, the output directory and filename webpack should produce and the loaders through which the specified files should be transformed
 * __Babel__
-    * Code transpired used to transform JSX to JS and ES6 to ES5, et cetera
+    * Code transpiler used to transform JSX to JS and ES6 to ES5, et cetera
     * It is a loader in webpack
 * __Axios__
     * Api used to send HTTP requests to different apis (in our case the GitHub api)
