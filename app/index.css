@@ -141,3 +141,68 @@ li {
   padding: 40px;
   border-radius: 3px;
 }
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.player {
+  flex: 1;
+  margin: 0 20px;
+  padding: 10px;
+}
+
+.player-label {
+  font-size: 20px;
+  margin: 5px 0;
+  font-weight: 300;
+}
+
+.player-inputs input {
+  padding: 8px;
+  font-size: 16px;
+  flex: 2;
+  border-radius: 3px;
+  border: none;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.player-inputs .input-light {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.player-inputs button {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.btn {
+  padding: 10px;
+  text-decoration: uppercase;
+  letter-spacing: .25em;
+  border-radius: 3px;
+  border: none;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  max-width: 200px;
+}
+
+.dark-btn {
+  color: #e6e6e6;
+  background: #141414;
+}
+
+.dark-btn:disabled {
+  background: #f2f2f2;
+  color: #c7c7c7;
+}
