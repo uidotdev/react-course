@@ -54,7 +54,7 @@ export default class Popular extends React.Component {
         repos,
         error: null,
       }))
-      .catch(() => {
+      .catch((error) => {
         console.warn('Error fetching repos: ', error)
 
         this.setState({
