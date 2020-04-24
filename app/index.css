@@ -184,7 +184,7 @@ li {
 
 .btn {
   padding: 10px;
-  text-decoration: uppercase;
+  text-transform: uppercase;
   letter-spacing: .25em;
   border-radius: 3px;
   border: none;
