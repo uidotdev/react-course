@@ -6,7 +6,7 @@ import Card from './Card'
 import Loading from './Loading'
 import Tooltip from './Tooltip'
 
-function LangaugesNav ({ selected, onUpdateLanguage }) {
+function LanguagesNav ({ selected, onUpdateLanguage }) {
   const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python']
 
   return (
@@ -25,7 +25,7 @@ function LangaugesNav ({ selected, onUpdateLanguage }) {
   )
 }
 
-LangaugesNav.propTypes = {
+LanguagesNav.propTypes = {
   selected: PropTypes.string.isRequired,
   onUpdateLanguage: PropTypes.func.isRequired
 }
@@ -123,7 +123,7 @@ export default class Popular extends React.Component {
 
     return (
       <React.Fragment>
-        <LangaugesNav
+        <LanguagesNav
           selected={selectedLanguage}
           onUpdateLanguage={this.updateLanguage}
         />
