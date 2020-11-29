@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "prop-types": "^15.7.2",
+    "query-string": "^6.13.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",
