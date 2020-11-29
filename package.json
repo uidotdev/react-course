@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve",
-    "build": "webpack"
+    "build": "NODE_ENV='production' webpack",
+    "build-for-windows": "set NODE_ENV=production&&webpack"
   },
   "babel": {
     "presets": [
