@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "build": "webpack"
   },
   "babel": {
     "presets": [
@@ -12,7 +13,8 @@
       "@babel/preset-react"
     ],
     "plugins": [
-      "@babel/plugin-proposal-class-properties"
+      "@babel/plugin-proposal-class-properties",
+      "syntax-dynamic-import"
     ]
   },
   "keywords": [],
@@ -31,6 +33,7 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "prop-types": "^15.7.2",
     "query-string": "^6.13.7",
     "react": "^17.0.1",
