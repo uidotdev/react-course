@@ -31,6 +31,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",
+    "react-router-dom": "^5.2.0",
     "webpack-dev-server": "^3.11.0"
   }
 }
