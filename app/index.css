@@ -1,11 +1,14 @@
-html, body, #app {
+html,
+body,
+#app {
   margin: 0;
   height: 100%;
   width: 100%;
 }
 
 body {
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, Helvetica Neue, sans-serif;
 }
 
 ul {
@@ -104,17 +107,17 @@ li {
   border-radius: 3px;
 }
 
-.repo {
+.card {
   margin: 10px 0;
   width: 250px;
   padding: 20px;
 }
 
-.repo a {
+.card a {
   text-decoration: none;
 }
 
-.repo img {
+.card img {
   margin-bottom: 8px;
 }
 
@@ -134,7 +137,7 @@ li {
 
 .battle-instructions li {
   flex: 1;
-  min-width: 300px
+  min-width: 300px;
 }
 
 .battle-instructions svg {
@@ -185,7 +188,7 @@ li {
 .btn {
   padding: 10px;
   text-transform: uppercase;
-  letter-spacing: .25em;
+  letter-spacing: 0.25em;
   border-radius: 3px;
   border: none;
   font-size: 16px;
@@ -227,4 +230,14 @@ li {
 
 .player-info .link {
   margin-left: 10px;
+}
+
+.btn-space {
+  margin: 40px auto;
+}
+
+.error {
+  color: #ff1616;
+  font-size: 20px;
+  margin: 50px 0;
 }
