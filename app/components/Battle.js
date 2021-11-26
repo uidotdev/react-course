@@ -8,6 +8,7 @@ import {
 import PropTypes from "prop-types";
 import Results from "./Results";
 import { ThemeConsumer } from "../contexts/theme";
+import { Link } from "react-router-dom";
 
 function Instructions() {
   return (
@@ -148,7 +149,6 @@ export default class Battle extends React.Component {
     this.state = {
       playerOne: null,
       playerTwo: null,
-      results: false,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -165,23 +165,7 @@ export default class Battle extends React.Component {
     });
   }
   render() {
-    const { playerOne, playerTwo, results } = this.state;
-
-    if (results) {
-      return (
-        <Results
-          playerOne={playerOne}
-          playerTwo={playerTwo}
-          onReset={() => {
-            this.setState({
-              playerOne: null,
-              playerTwo: null,
-              results: false,
-            });
-          }}
-        />
-      );
-    }
+    const { playerOne, playerTwo } = this.state;
 
     return (
       <React.Fragment>
@@ -218,12 +202,15 @@ export default class Battle extends React.Component {
           </div>
 
           {playerOne && playerTwo && (
-            <button
+            <Link
               className="btn btn-space dark-btn"
-              onClick={() => this.setState({ results: true })}
+              to={{
+                pathname: "/battle/results",
+                search: `?playerOne=${playerOne}&playerTwo=${playerTwo}`,
+              }}
             >
               Battle
-            </button>
+            </Link>
           )}
         </div>
       </React.Fragment>
