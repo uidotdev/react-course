@@ -48,15 +48,12 @@ ProfileList.propTypes = {
 };
 
 export default class Results extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      winner: null,
-      loser: null,
-      loading: true,
-      error: null,
-    };
-  }
+  state = {
+    winner: null,
+    loser: null,
+    loading: true,
+    error: null,
+  };
   componentDidMount() {
     const { playerOne, playerTwo } = queryString.parse(
       this.props.location.search
@@ -80,7 +77,6 @@ export default class Results extends React.Component {
   }
   render() {
     const { winner, loser, error, loading } = this.state;
-    const { onReset } = this.props;
 
     if (loading === true) {
       return <Loading />;
