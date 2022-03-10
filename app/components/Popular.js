@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-function LangaugesNav ({ selected, onUpdateLanguage }) {
+function LanguagesNav ({ selected, onUpdateLanguage }) {
   const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python']
 
   return (
@@ -39,7 +39,7 @@ export default class Popular extends React.Component {
 
     return (
       <React.Fragment>
-        <LangaugesNav
+        <LanguagesNav
           selected={selectedLanguage}
           onUpdateLanguage={this.updateLanguage}
         />
