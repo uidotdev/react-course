@@ -45,7 +45,7 @@ function ReposGrid ({ repos }) {
               alt={`Avatar for ${login}`}
             />
             <h2 className='center-text'>
-              <a className='link' href={html_url}>{login}</a>
+              <a className='link' href={html_url}>{name}</a>
             </h2>
             <ul className='card-list'>
               <li>
