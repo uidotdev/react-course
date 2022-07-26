@@ -12,7 +12,7 @@ import PropTypes from "prop-types";
 import Loading from "./Loading";
 import Tooltip from "./Tooltip";
 import { Link } from "react-router-dom";
-import withRouter from "./withRouter";
+import withSearchParams from "./withSearchParams";
 
 function ProfileList({ profile }) {
   return (
@@ -61,7 +61,7 @@ class Results extends React.Component {
     loading: true,
   };
   componentDidMount() {
-    const sp = new URLSearchParams(this.props.router.location.search);
+    const sp = this.props.router.searchParams;
     const playerOne = sp.get("playerOne");
     const playerTwo = sp.get("playerTwo");
 
@@ -122,4 +122,4 @@ class Results extends React.Component {
   }
 }
 
-export default withRouter(Results);
+export default withSearchParams(Results);
