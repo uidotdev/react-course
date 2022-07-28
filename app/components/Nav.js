@@ -1,22 +1,28 @@
 import * as React from "react";
-import { ThemeConsumer } from "../contexts/theme";
 import { NavLink } from "react-router-dom";
-
-const activeStyle = {
-  color: "rgb(187, 46, 31)",
-};
+import { ThemeConsumer } from "../contexts/theme";
+import { sunIcon, moonIcon } from "./icons";
 
 export default function Nav() {
   return (
     <ThemeConsumer>
       {({ theme, toggleTheme }) => (
-        <nav className="row space-between">
-          <ul className="row nav">
+        <nav className="split">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              "nav-link" + (isActive ? " active" : "")
+            }
+          >
+            Github Battle
+          </NavLink>
+          <ul className="row">
             <li>
               <NavLink
                 to="/"
-                style={({ isActive }) => (isActive ? activeStyle : null)}
-                className="nav-link"
+                className={({ isActive }) =>
+                  "nav-link" + (isActive ? " active" : "")
+                }
               >
                 Popular
               </NavLink>
@@ -24,20 +30,19 @@ export default function Nav() {
             <li>
               <NavLink
                 to="/battle"
-                style={({ isActive }) => (isActive ? activeStyle : null)}
-                className="nav-link"
+                className={({ isActive }) =>
+                  "nav-link" + (isActive ? " active" : "")
+                }
               >
                 Battle
               </NavLink>
             </li>
+            <li>
+              <button className="btn secondary icon" onClick={toggleTheme}>
+                {theme === "light" ? moonIcon : sunIcon}
+              </button>
+            </li>
           </ul>
-          <button
-            style={{ fontSize: 30 }}
-            className="btn-clear"
-            onClick={toggleTheme}
-          >
-            {theme === "light" ? "🔦" : "💡"}
-          </button>
         </nav>
       )}
     </ThemeConsumer>

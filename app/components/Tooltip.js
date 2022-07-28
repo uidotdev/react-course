@@ -12,8 +12,6 @@ const styles = {
     position: "absolute",
     width: "160px",
     bottom: "100%",
-    left: "50%",
-    marginLeft: "-80px",
     borderRadius: "3px",
     backgroundColor: "hsla(0, 0%, 20%, 0.9)",
     padding: "7px",
@@ -21,6 +19,7 @@ const styles = {
     color: "#fff",
     textAlign: "center",
     fontSize: "14px",
+    zIndex: "2",
   },
 };
 
@@ -29,7 +28,7 @@ export default function Tooltip({ text, children }) {
     <Hover>
       {(hovering) => (
         <div style={styles.container}>
-          {hovering === true && <div style={styles.tooltip}>{text}</div>}
+          {hovering === true && <div style={styles.tooltip} className="tooltip">{text}</div>}
           {children}
         </div>
       )}
