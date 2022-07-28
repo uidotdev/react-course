@@ -106,7 +106,6 @@ h4 {
 
 /* Components */
 
-
 select {
   background: var(--bg-alt);
   color: var(--accent);
@@ -219,7 +218,7 @@ th {
   height: 40px;
   position: sticky;
   top: 0;
-  background-color: var(--bg);
+
   color: var(--color);
   z-index: 1;
   border-bottom: 1px solid var(--border-color);
@@ -323,7 +322,6 @@ tbody td:first-child {
   cursor: not-allowed;
   opacity: 0.5;
 }
-
 
 .animate-in {
   animation: fade-in 0.5s ease-in-out;

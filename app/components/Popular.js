@@ -4,7 +4,7 @@ import { fetchPopularRepos } from "../utils/api";
 import Loading from "./Loading";
 import Table from "./Table";
 
-function LangaugesNav({ selected, onUpdateLanguage }) {
+function LanguagesNav({ selected, onUpdateLanguage }) {
   const languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python"];
 
   return (
@@ -21,7 +21,7 @@ function LangaugesNav({ selected, onUpdateLanguage }) {
   );
 }
 
-LangaugesNav.propTypes = {
+LanguagesNav.propTypes = {
   selected: PropTypes.string.isRequired,
   onUpdateLanguage: PropTypes.func.isRequired,
 };
@@ -80,7 +80,7 @@ export default class Popular extends React.Component {
       <main className="stack main-stack animate-in">
         <div className="split">
           <h1>Popular</h1>
-          <LangaugesNav
+          <LanguagesNav
             selected={selectedLanguage}
             onUpdateLanguage={this.updateLanguage}
           />
