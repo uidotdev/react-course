@@ -121,7 +121,7 @@ export default class Battle extends React.Component {
           <Link
             className={`btn primary ${disabled ? "disabled" : ""}`}
             to={{
-              pathname: "/battle/results",
+              pathname: "/results",
               search: `?playerOne=${playerOne}&playerTwo=${playerTwo}`,
             }}
           >

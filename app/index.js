@@ -28,7 +28,7 @@ class App extends React.Component {
               <Routes>
                 <Route path="/" element={<Popular />} />
                 <Route path="/battle" element={<Battle />} />
-                <Route path="/battle/results" element={<Results />} />
+                <Route path="/results" element={<Results />} />
                 <Route path="*" element={<h1>404</h1>} />
               </Routes>
             </React.Suspense>
