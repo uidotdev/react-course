@@ -1,6 +1,5 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { ThemeConsumer } from "../contexts/theme";
 import { Link } from "react-router-dom";
 import { close } from "./icons";
 
@@ -33,35 +32,28 @@ class PlayerInput extends React.Component {
   };
   render() {
     return (
-      <ThemeConsumer>
-        {({ theme }) => (
-          <form className={`card bg-${theme}`} onSubmit={this.handleSubmit}>
-            <label htmlFor="username" className="player-label">
-              {this.props.label}
-            </label>
-            <div className="input-row">
-              <input
-                type="text"
-                id="username"
-                className={`input-${theme}`}
-                placeholder="github username"
-                autoComplete="off"
-                value={this.state.username}
-                onChange={this.handleChange}
-              />
-              <button
-                className={`btn link ${
-                  theme === "dark" ? "btn-light" : "btn-dark"
-                }`}
-                type="submit"
-                disabled={!this.state.username}
-              >
-                Submit
-              </button>
-            </div>
-          </form>
-        )}
-      </ThemeConsumer>
+      <form className="card" onSubmit={this.handleSubmit}>
+        <label htmlFor="username" className="player-label">
+          {this.props.label}
+        </label>
+        <div className="input-row">
+          <input
+            type="text"
+            id="username"
+            placeholder="github username"
+            autoComplete="off"
+            value={this.state.username}
+            onChange={this.handleChange}
+          />
+          <button
+            className="btn link"
+            type="submit"
+            disabled={!this.state.username}
+          >
+            Submit
+          </button>
+        </div>
+      </form>
     );
   }
 }
@@ -73,30 +65,26 @@ PlayerInput.propTypes = {
 
 function PlayerPreview({ username, onReset, label }) {
   return (
-    <ThemeConsumer>
-      {({ theme }) => (
-        <article className="card">
-          <h3 className="player-label">{label}</h3>
-          <div className={`bg-${theme} split`}>
-            <div className="row gap-md">
-              <img
-                width={32}
-                height={32}
-                className="avatar"
-                src={`https://github.com/${username}.png?size=200`}
-                alt={`Avatar for ${username}`}
-              />
-              <a href={`https://github.com/${username}`} className="link">
-                {username}
-              </a>
-            </div>
-            <button className="btn secondary icon" onClick={onReset}>
-              {close}
-            </button>
-          </div>
-        </article>
-      )}
-    </ThemeConsumer>
+    <article className="card">
+      <h3 className="player-label">{label}</h3>
+      <div className="split">
+        <div className="row gap-md">
+          <img
+            width={32}
+            height={32}
+            className="avatar"
+            src={`https://github.com/${username}.png?size=200`}
+            alt={`Avatar for ${username}`}
+          />
+          <a href={`https://github.com/${username}`} className="link">
+            {username}
+          </a>
+        </div>
+        <button className="btn secondary icon" onClick={onReset}>
+          {close}
+        </button>
+      </div>
+    </article>
   );
 }
 

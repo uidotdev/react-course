@@ -422,6 +422,22 @@ tbody td:first-child {
 
 .tooltip {
   position: relative;
+  box-sizing: border-box;
+  position: absolute;
+  width: 240px;
+  bottom: 100%;
+  border-radius: 3px;
+  padding: 12px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 14px;
+  z-index: 2;
+  background: var(--bg-alt);
+  color: var(--color-muted);
+}
+
+.tooltip span:nth-child(2) {
+  color: var(--color);
 }
 
 .tooltip:after {
