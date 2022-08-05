@@ -1,5 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
+import { fetchPopularRepos } from "../utils/api";
 
 function LanguagesNav({ selected, onUpdateLanguage }) {
   const languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python"];
@@ -29,25 +30,52 @@ export default class Popular extends React.Component {
 
     this.state = {
       selectedLanguage: "All",
+      repos: null,
+      error: null,
     };
 
     this.updateLanguage = this.updateLanguage.bind(this);
   }
+  componentDidMount() {
+    this.updateLanguage(this.state.selectedLanguage);
+  }
   updateLanguage(selectedLanguage) {
     this.setState({
       selectedLanguage,
+      error: null,
     });
+
+    fetchPopularRepos(selectedLanguage)
+      .then((repos) =>
+        this.setState({
+          repos,
+          error: null,
+        })
+      )
+      .catch((error) => {
+        console.warn("Error fetching repos: ", error);
+
+        this.setState({
+          error: `There was an error fetching the repositories`,
+        });
+      });
   }
   render() {
-    const { selectedLanguage } = this.state;
+    const { selectedLanguage, repos, error } = this.state;
 
     return (
-      <main>
-        <LanguagesNav
-          selected={selectedLanguage}
-          onUpdateLanguage={this.updateLanguage}
-        />
-        {JSON.stringify(this.state, null, 2)}
+      <main className="stack main-stack animate-in">
+        <div className="split">
+          <h1>Popular</h1>
+          <LanguagesNav
+            selected={selectedLanguage}
+            onUpdateLanguage={this.updateLanguage}
+          />
+        </div>
+
+        {error && <p className="text-center error">{error}</p>}
+
+        {repos && <pre>{JSON.stringify(repos, null, 2)}</pre>}
       </main>
     );
   }
