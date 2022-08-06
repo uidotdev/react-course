@@ -1,6 +1,7 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import { close } from "./icons";
+import Results from "./Results";
 
 function Instructions() {
   return (
@@ -102,6 +103,7 @@ export default class Battle extends React.Component {
     this.state = {
       playerOne: null,
       playerTwo: null,
+      battle: false,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -118,14 +120,23 @@ export default class Battle extends React.Component {
     });
   }
   render() {
-    const { playerOne, playerTwo } = this.state;
+    const { playerOne, playerTwo, battle } = this.state;
     const disabled = !playerOne || !playerTwo;
+
+    if (battle === true) {
+      return <Results playerOne={playerOne} playerTwo={playerTwo} />;
+    }
 
     return (
       <main className="stack main-stack animate-in">
         <div className="split">
           <h1>Players</h1>
-          <button className={`btn primary ${disabled ? "disabled" : ""}`}>
+          <button
+            onClick={() => {
+              this.setState({ battle: true });
+            }}
+            className={`btn primary ${disabled ? "disabled" : ""}`}
+          >
             Battle
           </button>
         </div>
