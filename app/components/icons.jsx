@@ -10,3 +10,14 @@ export const hashtag = (
     />
   </svg>
 );
+
+export const close = (
+  <svg width={15} height={15} viewBox="0 0 15 15">
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M11.781 4.032a.575.575 0 00-.813-.814L7.5 6.687 4.03 3.218a.575.575 0 10-.813.814L6.687 7.5l-3.469 3.469a.575.575 0 10.813.813L7.5 8.313l3.468 3.469a.575.575 0 10.813-.813L8.313 7.5l3.468-3.468z"
+      fill="currentColor"
+    />
+  </svg>
+);

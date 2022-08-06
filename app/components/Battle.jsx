@@ -1,5 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
+import { close } from "./icons";
 
 function Instructions() {
   return (
@@ -63,6 +64,37 @@ class PlayerInput extends React.Component {
   }
 }
 
+function PlayerPreview({ username, onReset, label }) {
+  return (
+    <article className="card">
+      <h3 className="player-label">{label}</h3>
+      <div className="split">
+        <div className="row gap-md">
+          <img
+            width={32}
+            height={32}
+            className="avatar"
+            src={`https://github.com/${username}.png?size=200`}
+            alt={`Avatar for ${username}`}
+          />
+          <a href={`https://github.com/${username}`} className="link">
+            {username}
+          </a>
+        </div>
+        <button onClick={onReset} className="btn secondary icon">
+          {close}
+        </button>
+      </div>
+    </article>
+  );
+}
+
+PlayerPreview.propTypes = {
+  username: PropTypes.string.isRequired,
+  onReset: PropTypes.func.isRequired,
+  label: PropTypes.string.isRequired,
+};
+
 export default class Battle extends React.Component {
   constructor(props) {
     super(props);
@@ -73,10 +105,16 @@ export default class Battle extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
   handleSubmit(id, player) {
     this.setState({
       [id]: player,
+    });
+  }
+  handleReset(id) {
+    this.setState({
+      [id]: null,
     });
   }
   render() {
@@ -87,10 +125,9 @@ export default class Battle extends React.Component {
       <main className="stack main-stack animate-in">
         <div className="split">
           <h1>Players</h1>
-          <pre>{JSON.stringify(this.state, null, 2)}</pre>
-          <a href="#" className={`btn primary ${disabled ? "disabled" : ""}`}>
+          <button className={`btn primary ${disabled ? "disabled" : ""}`}>
             Battle
-          </a>
+          </button>
         </div>
         <section className="grid">
           {playerOne === null ? (
@@ -98,13 +135,25 @@ export default class Battle extends React.Component {
               label="Player One"
               onSubmit={(player) => this.handleSubmit("playerOne", player)}
             />
-          ) : null}
+          ) : (
+            <PlayerPreview
+              label="Player One"
+              username={playerOne}
+              onReset={() => this.handleReset("playerOne")}
+            />
+          )}
           {playerTwo === null ? (
             <PlayerInput
               label="Player Two"
               onSubmit={(player) => this.handleSubmit("playerTwo", player)}
             />
-          ) : null}
+          ) : (
+            <PlayerPreview
+              label="Player Two"
+              username={playerTwo}
+              onReset={() => this.handleReset("playerTwo")}
+            />
+          )}
         </section>
         <Instructions />
       </main>
