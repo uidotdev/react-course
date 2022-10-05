@@ -5,11 +5,12 @@ import Tooltip from "./Tooltip";
 
 function MoreInfo({
   created_at,
-  forked_count,
+  forks_count,
   language,
   updated_at,
   watchers,
   login,
+  type,
 }) {
   return (
     <ul className="tooltip stack">
@@ -33,11 +34,15 @@ function MoreInfo({
         <span>Watchers:</span>
         <span>{watchers.toLocaleString()}</span>
       </li>
-      {forked_count && (
+      {forks_count && (
         <li className="split">
-          <span>Forked:</span> <span>{forked_count.toLocaleString()}</span>
+          <span>Forked:</span> <span>{forks_count.toLocaleString()}</span>
         </li>
       )}
+      <li className="split">
+        <span>Type:</span>
+        <span>{type}</span>
+      </li>
     </ul>
   );
 }
@@ -49,6 +54,7 @@ MoreInfo.propTypes = {
   watchers: PropTypes.number.isRequired,
   type: PropTypes.string.isRequired,
   login: PropTypes.string.isRequired,
+  forks_count: PropTypes.number,
 };
 
 function TableHead() {
@@ -92,6 +98,7 @@ function TableRow({
               watchers={watchers}
               type={type}
               login={login}
+              forks_count={forks_count}
             />
           }
         >
